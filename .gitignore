@@ -221,8 +221,8 @@ __marimo__/
 
 # Large data files
 SGJobData.db
-# SGJobData.duckdb
-cleaned_jobs.parquet
+SGJobData.duckdb
+# cleaned_jobs.parquet
 
 # PY file
 create_sqlite_db.py
