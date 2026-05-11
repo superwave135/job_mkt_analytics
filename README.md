@@ -38,6 +38,6 @@ The dashboard opens at `http://localhost:8501`.
 
 ## Notes
 
-- The notebook connects to `SGJobData_copy.duckdb` with `read_only=True` to avoid file-lock conflicts if the original is open in another kernel. Edit `DB_FILE` in cell 2 to switch back to `SGJobData.duckdb`.
+- The notebook connects to `SGJobData.duckdb` with `read_only=True`
 - The dashboard reads only `cleaned_jobs.parquet` — no DuckDB connection needed at runtime.
 - First load of the parquet takes ~2 s; subsequent tab switches are instant thanks to `@st.cache_data`.
