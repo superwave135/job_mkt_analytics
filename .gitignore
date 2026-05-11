@@ -221,7 +221,7 @@ __marimo__/
 
 # Large data files
 SGJobData.db
-SGJobData.duckdb
+# SGJobData.duckdb
 cleaned_jobs.parquet
 
 # PY file
