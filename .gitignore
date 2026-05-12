@@ -226,3 +226,4 @@ SGJobData.duckdb
 
 # PY file
 create_sqlite_db.py
+doc.ipynb

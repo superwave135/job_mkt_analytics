@@ -1,4 +1,4 @@
-# Singapore Jobs Analytics — Module 1 Project
+# Singapore Jobs Analytics
 
 Talent-acquisition intelligence dashboard built on ~1M job postings from MyCareersFuture.sg.
 
@@ -32,7 +32,7 @@ The dashboard opens at `http://localhost:8501`.
 | `analysis.ipynb` | Data loading, cleaning, feature engineering, EDA, and parquet export |
 | `streamlit_app.py` | Streamlit dashboard — 4 tabs, sidebar filters |
 | `cleaned_jobs.parquet` | Cleaned dataset produced by the notebook (created on first run) |
-| `SGJobData.duckdb` / `SGJobData_copy.duckdb` | Source database (~70 MB DuckDB binary) |
+| `SGJobData.duckdb` | Source database (~70 MB DuckDB binary) |
 | `REPORT.md` | Full written report following assignment Sections 1–4 |
 | `requirements.txt` | Python dependencies |
 
