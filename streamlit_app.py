@@ -134,7 +134,7 @@ with tab_overview:
             color_discrete_sequence=[BRAND_BLUE],
         )
         fig.update_layout(height=320)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with right:
         emp_c = df["employmentTypes"].value_counts().reset_index()
@@ -145,7 +145,7 @@ with tab_overview:
             color_discrete_sequence=px.colors.qualitative.Set2,
         )
         fig.update_layout(height=400, legend=dict(orientation="v", x=1.0))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     ind_c = df["primary_category"].value_counts().head(15).reset_index()
     ind_c.columns = ["industry", "count"]
@@ -159,7 +159,7 @@ with tab_overview:
         height=480, yaxis={"categoryorder": "total ascending"},
         coloraxis_showscale=False,
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
 # ═══════════════════════════════════════════════════════════════════════════
 # TAB 2 — ROLES & INDUSTRIES
@@ -182,7 +182,7 @@ with tab_roles:
             yaxis={"categoryorder": "total ascending"},
             coloraxis_showscale=False,
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with right:
         sc = (
@@ -199,7 +199,7 @@ with tab_roles:
             color_discrete_sequence=px.colors.qualitative.Pastel,
         )
         fig.update_layout(height=280, showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
         avail_levels = [l for l in LEVEL_ORDER if l in df["positionLevels"].values]
         pc = (
@@ -218,12 +218,12 @@ with tab_roles:
             height=360, yaxis={"categoryorder": "total ascending"},
             coloraxis_showscale=False,
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     st.subheader("Top Hiring Companies")
     co_c = df["postedCompany_name"].value_counts().head(20).reset_index()
     co_c.columns = ["Company", "Postings"]
-    st.dataframe(co_c, use_container_width=True, height=380, hide_index=True)
+    st.dataframe(co_c, width='stretch', height=380, hide_index=True)
 
 # ═══════════════════════════════════════════════════════════════════════════
 # TAB 3 — SALARY INTELLIGENCE
@@ -253,7 +253,7 @@ with tab_salary:
             color_discrete_sequence=px.colors.sequential.Blues[1:],
         )
         fig.update_layout(height=340, xaxis_tickangle=-15, showlegend=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with right:
         avail_levels = [l for l in LEVEL_ORDER if l in df["positionLevels"].values]
@@ -271,7 +271,7 @@ with tab_salary:
             labels={"median_salary": "Median (SGD)", "level": ""},
         )
         fig.update_layout(height=340, xaxis_tickangle=-25, coloraxis_showscale=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     sal_ind = (
         df.groupby("primary_category")["average_salary"]
@@ -291,7 +291,7 @@ with tab_salary:
         height=480, yaxis={"categoryorder": "total ascending"},
         coloraxis_showscale=False,
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     st.subheader("Top-Paying Roles (min. 50 postings)")
     top_roles = (
@@ -304,7 +304,7 @@ with tab_salary:
     )
     top_roles["median_salary"] = top_roles["median_salary"].round(0).astype(int)
     top_roles.columns = ["Role", "Median Salary (SGD/month)", "Postings"]
-    st.dataframe(top_roles, use_container_width=True, height=420, hide_index=True)
+    st.dataframe(top_roles, width='stretch', height=420, hide_index=True)
 
 # ═══════════════════════════════════════════════════════════════════════════
 # TAB 4 — HIRING TRENDS
@@ -324,7 +324,7 @@ with tab_trends:
         markers=True,
     )
     fig.update_layout(height=380)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     top5_ind = df["primary_category"].value_counts().head(5).index.tolist()
     ind_mth = (
@@ -339,7 +339,7 @@ with tab_trends:
         labels={"posting_month": "", "count": "Postings", "primary_category": "Industry"},
     )
     fig.update_layout(height=380)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     left, right = st.columns(2)
     with left:
@@ -356,7 +356,7 @@ with tab_trends:
             color_discrete_sequence=["#e74c3c"],
         )
         fig.update_layout(height=320)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with right:
         top4_emp = df["employmentTypes"].value_counts().head(4).index.tolist()
@@ -372,7 +372,7 @@ with tab_trends:
             labels={"posting_month": "", "count": "Postings", "employmentTypes": "Type"},
         )
         fig.update_layout(height=320)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     st.subheader("Industry Growth: 2023 vs 2024 (Jan–May, normalised)")
     y23 = df[df["posting_year"] == 2023].groupby("primary_category").size()
@@ -391,4 +391,4 @@ with tab_trends:
         .reset_index()
         .rename(columns={"primary_category": "Industry"})
     )
-    st.dataframe(growth_df, use_container_width=True, height=420, hide_index=True)
+    st.dataframe(growth_df, width='stretch', height=420, hide_index=True)
