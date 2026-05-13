@@ -20,7 +20,7 @@ jupyter notebook analysis.ipynb
 streamlit run streamlit_app.py
 
 # 5 Streamlit URL 
-https://job-mkt-analytics-geekytan.streamlit.app/
+https://jobmktanalytics-geeky.streamlit.app/
 ```
 
 The dashboard opens at `http://localhost:8501`.
